@@ -10,9 +10,19 @@ function geradorQrCode() {
     qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrCodeInputValue}`
     qrCodeImg.addEventListener("load", () => {
         container.classList.add("ativo")
+        qrCodeBtn.innerHTML = "QR Code criado"
     })
 
 }
 qrCodeBtn.addEventListener("click", () => {
     geradorQrCode()
+})
+qrCodeInput.addEventListener("keydown", () =>{
+    if(e.code === "Enter")
+})
+qrCodeInput.addEventListener("keyup", () =>{
+    if(!qrCodeInput.value){
+        container.classList.remove("ativo")
+        qrCodeBtn.innerHTML = "Gerar Qrcode"
+    }
 })
